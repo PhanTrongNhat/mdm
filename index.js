@@ -4,8 +4,8 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import neo4j from "neo4j-driver";
 let driver = neo4j.driver(
-  "bolt://localhost:7687",
-  neo4j.auth.basic("mdm", "123456")
+  "neo4j://localhost:7687",
+  neo4j.auth.basic("neo4j", "123456")
 );
 const session = driver.session();
 const app = express();
@@ -28,13 +28,20 @@ mongoose.connect(
   }
 );
 
-app.get("/", async function (req,res) {
+// app.get("/", async function (req,res) {
 
+//   const num_nodes = await session.run("MATCH (n) RETURN n", {});
+//   session.close();
+//   console.log("RESULT", !num_nodes ? 0 : num_nodes.records.length);
+//  res( !num_nodes ? 0 : num_nodes.records.length);
+// });
+app.get("/", async (req, res) => {
   const num_nodes = await session.run("MATCH (n) RETURN n", {});
-  session.close();
-  console.log("RESULT", !num_nodes ? 0 : num_nodes.records.length);
- res( !num_nodes ? 0 : num_nodes.records.length);
+   
+    console.log("RESULT", !num_nodes ? 0 : num_nodes.records.length);
+  res.status(200).send("hello");
 });
 app.listen(port);
 
 console.log("RESTful API server started on: " + port);
+  //  session.close();
