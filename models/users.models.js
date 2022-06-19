@@ -1,39 +1,54 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
-const OrderSchema = new mongoose.Schema(
+const userSchema = new mongoose.Schema(
   {
-    name: {
+    hoTen: {
       type: String,
       required: true,
     },
-    address: {
+    gioiTinh: {
       type: String,
       required: true,
     },
-    phone: {
+    SDT: {
       type: String,
       required: true,
     },
-    avatar: {
+    CCCD: {
+      type: String,
+    },
+    VNVCcode: {
       type: String,
       required: true,
     },
-    username: {
+    email: {
       type: String,
       required: true,
     },
-    password: {
+    diaChi: {
       type: String,
       required: true,
     },
-    isAdmin: {
-      type: Boolean,
-      default: false,
+    tinh: {
+      type: String,
+      required: true,
+    },
+    huyen: {
+      type: String,
+      required: true,
+    },
+    xa: {
+      type: String,
+      required: true,
+    },
+    trungTam: {
+      type: String,
+      required: true,
     },
   },
   { timestamps: true }
 );
 
-const Product = mongoose.model("users", OrderSchema);
+const user = mongoose.model("users", userSchema);
 
-module.exports = Product;
+export default  user;
