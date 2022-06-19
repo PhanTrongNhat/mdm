@@ -119,25 +119,19 @@
 
      <div class="col-md-5">
       <label for="inputcenterRegister" class="form-label">Trung tâm VNCN muốn tiêm:</label>
-      <input
-        type="text"
-        class="form-control"
-        id="inputcenterRegister"
-        name="centerRegister"
-        placeholder="chọn"
-      />
+      <select id="inputcenterRegister" name="district" class="form-select">
+      {{#each trungtam}}
+          {{#each this}}
+            <option value="{{tenTT}}">{{tenTT}}</option>
+          {{/each}}
+        {{/each}}
+      </select>
       <div class="invalid-feedback">*</div>
     </div>
 
     <div class="col-md-5">
       <label for="inputdateUserService" class="form-label">Ngày mong muốn tiêm:</label>
-      <input
-        type="text"
-        class="form-control"
-        id="inputdateUserService"
-        name="dateUserService"
-        placeholder="Ngày/Tháng/Năm"
-      />
+     <input type="date" class="form-control" id="inputdateUserService" placeholder="Ngày/Tháng/Năm" />
       <div class="invalid-feedback">*</div>
     </div>
 
