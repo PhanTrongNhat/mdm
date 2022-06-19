@@ -2,11 +2,11 @@ import mongoose from "mongoose";
 
 const huyenSchema = new mongoose.Schema(
   {
-    name: {
+    tenHuyen: {
       type: String,
       required: true,
     },
-    country_id: {
+    tinhId: {
       type: mongoose.ObjectId,
       required: true,
     },
