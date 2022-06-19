@@ -1,0 +1,148 @@
+<h1 style="text-align: center; color: #0040FF; margin-top: 5%; margin-bottom: 5%">Đăng ký tiêm Vaccin</h1>
+<div class="container">
+  <form class="row g-3 was-validated" method="POST" action="/registerVaccin">
+    <h4>Thông tin người tiêm</h4>
+    <div class="col-md-6">
+      <label for="inputfullName" class="form-label">Họ tên người tiêm:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="inputfullName"
+        name="fullName"
+        placeholder="1234 Main St"
+      />
+      <div class="invalid-feedback">*</div>
+    </div>
+      <div class="col-md-6">
+      <label for="inputDOB" class="form-label">Ngày Sinh:</label>
+      <input type="date" class="form-control" id="inputDOB" placeholder="Ngày/Tháng/Năm" />
+      <div class="invalid-feedback">*</div>
+    </div>
+     <div class="col-md-6">
+      <label for="inputgender" class="form-label">Giới tính:</label>
+      <select id="inputgender" name="gender" class="form-select">
+        <option selected>Nam</option>
+        <option>Nữ</option>
+      </select>
+      <div class="invalid-feedback">*</div>
+    </div>
+    <div class="col-md-6">
+      <label for="inputcustomerId" class="form-label">Mã khách hàng VNVC (nếu có):</label>
+      <input
+        type="text"
+        name="customerId"
+        class="form-control"
+        id="inputcustomerId"
+      />
+    </div>
+     <div class="col-md-4">
+      <label for="inputcity" class="form-label">Tỉnh thành:</label>
+      <select
+        id="inputcity"
+        name="city"
+        class="form-select"
+      >
+        {{#each tinh}}
+          {{#each this}}
+            <option value="{{_id}}">{{tenTinh}}</option>
+          {{/each}}
+        {{/each}}
+      </select>
+      <div class="invalid-feedback">*</div>
+    </div>
+    <div class="col-md-4">
+      <label for="inputdistrict" class="form-label">Quận Huyện:</label>
+      <select id="inputdistrict" name="district" class="form-select">
+        {{#each huyen}}
+          {{#each this}}
+            <option value="{{_id}}">{{name}}</option>
+          {{/each}}
+        {{/each}}
+      </select>
+      <div class="invalid-feedback">*</div>
+    </div>
+    <div class="col-md-4">
+      <label for="inputXa" class="form-label">Phường Xã:</label>
+      <select id="inputXa" name="village" class="form-select">
+      </select>
+    </div>
+    <div class="col-md-12">
+      <label for="inputaddress" class="form-label">Số nhà - Tên đường:</label>
+      <input
+        type="text"
+        name="address"
+        class="form-control"
+        id="inputaddress"
+      />
+      <div class="invalid-feedback">*</div>
+    </div>
+   
+    <h4>Thông tin liên hệ</h4>
+
+    <div class="col-md-6">
+      <label for="inputnameofRelation" class="form-label">Họ tên người liên hệ:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="nameofRelation"
+        name="nameofRelation"
+        placeholder="Nguyen Van A"
+      />
+      <div class="invalid-feedback">*</div>
+    </div>
+
+    <div class="col-md-5">
+      <label for="inputrelation" class="form-label">Mối quan hệ với người tiêm:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="inputrelation"
+        name="relation"
+        placeholder="Ba/ mẹ"
+      />
+      <div class="invalid-feedback">*</div>
+    </div>
+
+    <div class="col-md-5">
+      <label for="inputphonenumberOfRelation" class="form-label">Số điện thoại người liên:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="inputphonenumberOfRelation"
+        name="phonenumberOfRelation"
+        placeholder="0963691721"
+      />
+      <div class="invalid-feedback">*</div>
+    </div>
+
+    <h4>Thông tin dịch vụ</h4>
+
+     <div class="col-md-5">
+      <label for="inputcenterRegister" class="form-label">Trung tâm VNCN muốn tiêm:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="inputcenterRegister"
+        name="centerRegister"
+        placeholder="chọn"
+      />
+      <div class="invalid-feedback">*</div>
+    </div>
+
+    <div class="col-md-5">
+      <label for="inputdateUserService" class="form-label">Ngày mong muốn tiêm:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="inputdateUserService"
+        name="dateUserService"
+        placeholder="Ngày/Tháng/Năm"
+      />
+      <div class="invalid-feedback">*</div>
+    </div>
+
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Đăng ký</button>
+    </div>
+  </form>
+</div>
