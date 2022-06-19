@@ -18,8 +18,7 @@ const userSchema = new mongoose.Schema(
       type: String,
     },
     VNVCcode: {
-      type: String,
-      required: true,
+      type: String
     },
     email: {
       type: String,
