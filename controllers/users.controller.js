@@ -31,7 +31,13 @@ const resultHuyen = await huyen.find();
       huyen: resultHuyen,
     });
   } catch (error) {}
- 
+
+};
+export const getBaiViet = async (req, res) => {
+  try {
+    res.render("baiviet");
+  } catch (error) {}
+
 };
 export const getAllTinh = async (req, res) => {
   try {
@@ -42,7 +48,7 @@ export const getAllTinh = async (req, res) => {
 };
 export const registerUser = async(req, res) => {
   console.log(req.body);
-  const data = new user(req.body);
+  const data = new user(req.body); 
   await data.save()
   res.render("user");
 };
