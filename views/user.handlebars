@@ -1,1 +1,141 @@
-<h1>User page</h1>
+<div class="container">
+  <h1 class="text-center text-primary">
+    Đăng ký thành viên
+  </h1>
+
+  <form class="row g-3" method="POST" action="/register">
+    <h4>Thông tin cá nhân</h4>
+    <div class="col-md-6">
+      <label for="inputHoTen" class="form-label">Họ và tên:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="inputHoTen"
+        name="hoTen"
+        required
+        placeholder="1234 Main St"
+      />
+    </div>
+    <div class="col-md-6">
+      <label for="inputGioiTinh" class="form-label">Giới tính:</label>
+      <select id="inputGioiTinh" required name="gioiTinh" class="form-select">
+        <option selected>Nam</option>
+        <option>Nữ</option>
+      </select>
+    </div>
+
+    <div class="col-md-6">
+      <label for="inputDT" class="form-label">Điện thoại:</label>
+      <input
+        required
+        type="text"
+        name="SDT"
+        class="form-control"
+        id="inputDT"
+      />
+    </div>
+    <div class="col-md-6">
+      <label for="inputDOB" class="form-label">Ngày Sinh:</label>
+      <input required type="date" class="form-control" id="inputDOB" />
+    </div>
+    <div class="col-md-6">
+      <label for="inputCCCD" class="form-label">CMND/ CCCD:</label>
+      <input
+        type="number"
+        required
+        name="CCCD"
+        class="form-control"
+        id="inputCCCD"
+      />
+    </div>
+    <div class="col-md-6">
+      <label for="inputVNVCcode" class="form-label">Mã khách hàng VNVC (nếu có):</label>
+      <input
+        type="text"
+        name="VNVCcode"
+        class="form-control"
+        id="inputVNVCcode"
+      />
+    </div>
+    <div class="col-md-6">
+      <label for="inputEmail4" class="form-label">Email</label>
+      <input
+        type="email"
+        required
+        name="email"
+        class="form-control"
+        id="inputEmail4"
+      />
+    </div>
+    <div class="col-md-6">
+      <label for="inputDiaChi" class="form-label">Số nhà - Tên đường:</label>
+      <input
+        type="text"
+        name="diaChi"
+        required
+        class="form-control"
+        id="inputDiaChi"
+      />
+    </div>
+    <h1 id="h1"></h1>
+    <div class="col-md-6">
+      <label for="inputTinh" class="form-label">Thành phố/ Tỉnh:</label>
+      <select
+        id="inputTinh"
+        name="tinh"
+        required
+        class="form-select"
+        onchange="myFunction()"
+      >
+        {{#each tinh}}
+
+          {{#each this}}
+            <option value="{{_id}}">{{tenTinh}}</option>
+          {{/each}}
+        {{/each}}
+        {{! <option selected>Nam</option>
+        <option>Nữ</option> }}
+      </select>
+    </div>
+    <div class="col-md-6">
+      <label for="inputHuyen" class="form-label">Quận/ Huyện:</label>
+      <select id="inputHuyen" required name="huyen" class="form-select">
+        {{#each huyen}}
+
+          {{#each this}}
+            <option value="{{_id}}">{{name}}</option>
+          {{/each}}
+        {{/each}}
+      </select>
+    </div>
+    <div class="col-md-6">
+      <label for="inputXa" class="form-label">Phường/ Xã:</label>
+      <select id="inputXa" required name="xa" class="form-select">
+        <option selected>Nam</option>
+        <option>Nữ</option>
+      </select>
+    </div>
+    <h4>Địa điểm nhận thẻ</h4>
+
+    <div class="col-md-12">
+      <label for="inputTrungTam" class="form-label">Trung tâm VNVC *:</label>
+      <select id="inputTrungTam" name="trungTam" class="form-select">
+        <option selected>Nam</option>
+        <option>Nữ</option>
+      </select>
+    </div>
+
+    <div class="col-md-12">
+      <textarea
+        class="form-control"
+        placeholder="Leave a comment here"
+        id="floatingTextarea"
+      ></textarea>
+      <label for="floatingTextarea"></label>
+    </div>
+
+    <div class="col-12">
+      <button type="submit" class="btn btn-primary">Sign in</button>
+    </div>
+  </form>
+</div>
