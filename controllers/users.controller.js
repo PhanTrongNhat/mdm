@@ -3,7 +3,6 @@ let driver = neo4j.driver(
   "neo4j://localhost:7687",
   neo4j.auth.basic("neo4j", "123456")
 );
-import userModel from "../models/users.models.js";
 import tinh from "../models/tinh.models.js";
 import huyen from "../models/huyen.model.js";
 import xa from "../models/xa.model.js";
@@ -26,25 +25,31 @@ export const getUser = async (req, res) => {
   try {
     const resultHuyen = await huyen.find();
     const result = await tinh.find();
-    console.log(typeof result);
-    console.log(result);
+       const resultTT = await TT.find();
     res.render("user", {
       tinh: result,
       huyen: resultHuyen,
+      TT: resultTT,
     });
   } catch (error) {}
 };
-export const getAllTinh = async (req, res) => {
+export const getHuyenByIdTinh = async (req, res) => {
   try {
-    const result = await tinh.find();
+    const result = await huyen.find({'tinhId':req.query.id});
     res.status(200).send(result);
   } catch (error) {}
 };
+export const getXaByIdHuyen = async (req, res) => {
+  try {
+    const result = await xa.find({ huyenId: req.query.id });
+    res.status(200).send(result);
+  } catch (error) {}
+};
+
 export const registerUser = async (req, res) => {
-  console.log(req.body);
   const data = new user(req.body);
   await data.save();
-  res.render("user");
+  res.render("success");
 };
 // export const insertData = async (req, res) => {
 //   const data = await TT.insertMany([

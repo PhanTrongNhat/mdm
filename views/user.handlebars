@@ -84,6 +84,8 @@
         id="inputTinh"
         name="tinh"
         class="form-select"
+        required
+        onchange="chooseTinh()"
       >
         {{#each tinh}}
 
@@ -97,29 +99,39 @@
     </div>
     <div class="col-md-6">
       <label for="inputHuyen" class="form-label">Quận/ Huyện:</label>
-      <select id="inputHuyen" required name="huyen" class="form-select">
-        {{#each huyen}}
+      <select
+        id="inputHuyen"
+        required
+        name="huyen"
+        class="form-select"
+        onchange="chooseHuyen()"
+      >
+        {{!-- {{#each huyen}}
 
           {{#each this}}
             <option value="{{_id}}">{{name}}</option>
           {{/each}}
-        {{/each}}
+        {{/each}} --}}
       </select>
     </div>
     <div class="col-md-6">
       <label for="inputXa" class="form-label">Phường/ Xã:</label>
       <select id="inputXa" required name="xa" class="form-select">
-        <option selected>Nam</option>
-        <option>Nữ</option>
+
       </select>
     </div>
     <h4>Địa điểm nhận thẻ</h4>
 
     <div class="col-md-12">
       <label for="inputTrungTam" class="form-label">Trung tâm VNVC *:</label>
-      <select id="inputTrungTam" name="trungTam" class="form-select">
-        <option selected>Nam</option>
-        <option>Nữ</option>
+      <select id="inputTrungTam" required name="trungTam" class="form-select">
+        {{#each TT}}
+
+          {{#each this}}
+            <option value="{{_id}}">{{tenTT}}</option>
+          {{/each}}
+
+        {{/each}}
       </select>
     </div>
 
