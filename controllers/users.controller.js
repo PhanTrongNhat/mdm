@@ -3,12 +3,13 @@ let driver = neo4j.driver(
   "neo4j://localhost:7687",
   neo4j.auth.basic("neo4j", "123456")
 );
+const session = driver.session();
 import tinh from "../models/tinh.models.js";
 import huyen from "../models/huyen.model.js";
 import xa from "../models/xa.model.js";
 import user from "../models/users.models.js";
 import TT from "../models/trungtam.model.js";
-const session = driver.session();
+
 export const getAll = async (req, res) => {
   const num_nodes = await session.run("MATCH (n) RETURN n", {});
 

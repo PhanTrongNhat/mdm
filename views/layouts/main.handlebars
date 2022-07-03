@@ -43,8 +43,9 @@
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
               <a class="nav-link active" aria-current="page" href="#">Home</a>
-                 <a class="nav-link" href="./RegisterVaccination">Đăng ký tiêm</a>
-              <a class="nav-link" href="#">Features</a>
+              <a class="nav-link" href="./RegisterVaccination">Đăng ký tiêm</a>
+              <a class="nav-link" href="./findArticle">Tìm bài viết</a>
+               <a class="nav-link" href="./categories">Tìm kiếm vacxin</a>
               <a class="nav-link" href="./user">Đăng ký thông tin thành viên</a>
               <a class="nav-link disabled">Disabled</a>
             </div>
@@ -97,6 +98,24 @@ function chooseHuyen() {
   xhr.send();
 }
 
+  let tenCategory = document.getElementById("inputCategories").value;
+  const xhr = new XMLHttpRequest();
+  xhr.open("GET", `//localhost:3000/categories?ten=${tenCategory}`, true);
+  xhr.onload = function () {
+    if (this.status === 200) {
+      let obj = JSON.parse(this.responseText);
+      let list = document.getElementById("inputXa");
+      str = "";
+      for (key in obj) {
+        str += `<option value=${obj[key]._id}>${obj[key].tenXa}</li>`;
+      }
+      list.innerHTML = str;
+    } else {
+      console.log("File not found");
+    }
+  };
+  xhr.send();
+}
 
     </script>
     <script
