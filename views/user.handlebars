@@ -88,10 +88,11 @@
         onchange="chooseTinh()"
       >
         {{#each tinh}}
-
+        {{#if this}}
           {{#each this}}
             <option value="{{_id}}">{{tenTinh}}</option>
           {{/each}}
+          {{/if}}
         {{/each}}
         {{! <option selected>Nam</option>
         <option>Nữ</option> }}

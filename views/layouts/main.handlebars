@@ -584,8 +584,9 @@
           <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
             <div class="navbar-nav">
               <a class="nav-link active" aria-current="page" href="#">Home</a>
-                 <a class="nav-link" href="./RegisterVaccination">Đăng ký tiêm</a>
-              <a class="nav-link" href="#">Features</a>
+              <a class="nav-link" href="./RegisterVaccination">Đăng ký tiêm</a>
+              <a class="nav-link" href="./findArticle">Tìm bài viết</a>
+               <a class="nav-link" href="./categories">Tìm kiếm vacxin</a>
               <a class="nav-link" href="./user">Đăng ký thông tin thành viên</a>
               <a class="nav-link" href="./support">Hỗ trợ</a>
               <a class="nav-link disabled">Disabled</a>
@@ -600,7 +601,7 @@
     {{{body}}}
     <script>
     
-      function chooseTinh() {
+  function chooseTinh() {
   let tinhId = document.getElementById("inputTinh").value;
   const xhr = new XMLHttpRequest();
   xhr.open("GET", `//localhost:3000/getHuyenByIdTinh?id=${tinhId}`, true);
@@ -639,6 +640,7 @@ function chooseHuyen() {
   xhr.send();
 }
 
+  
 
     </script>
     <script

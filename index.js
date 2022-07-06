@@ -5,7 +5,7 @@ import router from './routers/router.js';
 import registerVaccinRouter from "./routers/RegisterVaccinationrouter.js";
 import supportrouter from "./routers/supportrouter.js";
 import dbMongo from './dbMongo.js';
-import dbNeo4j from './dbNeo4j.js';
+// import dbNeo4j from './dbNeo4j.js';
 import { engine } from "express-handlebars";
 const app = express();
 app.engine("handlebars", engine());
@@ -14,7 +14,7 @@ app.set("views", "./views");
 
 //Connect database
 dbMongo._connect();
-dbNeo4j._connect();
+// dbNeo4j._connect();
 
 //Init port
 let port = process.env.PORT || 3000;
