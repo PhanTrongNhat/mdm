@@ -59,7 +59,7 @@
     {{{body}}}
     <script>
     
-      function chooseTinh() {
+  function chooseTinh() {
   let tinhId = document.getElementById("inputTinh").value;
   const xhr = new XMLHttpRequest();
   xhr.open("GET", `//localhost:3000/getHuyenByIdTinh?id=${tinhId}`, true);
@@ -98,24 +98,7 @@ function chooseHuyen() {
   xhr.send();
 }
 
-  let tenCategory = document.getElementById("inputCategories").value;
-  const xhr = new XMLHttpRequest();
-  xhr.open("GET", `//localhost:3000/categories?ten=${tenCategory}`, true);
-  xhr.onload = function () {
-    if (this.status === 200) {
-      let obj = JSON.parse(this.responseText);
-      let list = document.getElementById("inputXa");
-      str = "";
-      for (key in obj) {
-        str += `<option value=${obj[key]._id}>${obj[key].tenXa}</li>`;
-      }
-      list.innerHTML = str;
-    } else {
-      console.log("File not found");
-    }
-  };
-  xhr.send();
-}
+  
 
     </script>
     <script
