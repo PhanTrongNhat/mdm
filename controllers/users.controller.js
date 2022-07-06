@@ -10,12 +10,12 @@ import user from "../models/users.models.js";
 import TT from "../models/trungtam.model.js";
 const session = driver.session();
 export const getAll = async (req, res) => {
-  const num_nodes = await session.run("MATCH (n) RETURN n", {});
+  // const num_nodes = await session.run("MATCH (n) RETURN n", {});
 
-  console.log("RESULT", !num_nodes ? 0 : num_nodes.records);
+  // console.log("RESULT", !num_nodes ? 0 : num_nodes.records);
   //  res( !num_nodes ? 0 : num_nodes.records.length);
   res.render("home", {
-    showTitle: num_nodes.records.length,
+    // showTitle: num_nodes.records.length,
 
     // Override `foo` helper only for this rendering.
   });

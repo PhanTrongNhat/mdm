@@ -3,6 +3,7 @@ import bodyParser from "body-parser";
 import cors from "cors";
 import router from './routers/router.js';
 import registerVaccinRouter from "./routers/RegisterVaccinationrouter.js";
+import supportrouter from "./routers/supportrouter.js";
 import dbMongo from './dbMongo.js';
 import dbNeo4j from './dbNeo4j.js';
 import { engine } from "express-handlebars";
@@ -25,6 +26,7 @@ app.use(bodyParser.urlencoded({ extended: true, limit: "30mb" }));
 app.use(cors());
 app.use("/",router);
 app.use("/",registerVaccinRouter);
+app.use("/",supportrouter);
 app.listen(port);
 
 console.log("RESTful API server started on: " + port);

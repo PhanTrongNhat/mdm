@@ -15,7 +15,7 @@
     </div>
       <div class="col-md-6">
       <label for="inputDOB" class="form-label">Ngày Sinh:</label>
-      <input type="date" class="form-control" id="inputDOB" placeholder="Ngày/Tháng/Năm" />
+      <input type="date" class="form-control" id="inputDOB" name="birthday" placeholder="Ngày/Tháng/Năm" />
       <div class="invalid-feedback">*</div>
     </div>
      <div class="col-md-6">
@@ -38,9 +38,10 @@
      <div class="col-md-4">
       <label for="inputcity" class="form-label">Tỉnh thành:</label>
       <select
-        id="inputcity"
+        id="inputTinh"
         name="city"
         class="form-select"
+        onchange="chooseTinh()"
       >
         {{#each tinh}}
           {{#each this}}
@@ -52,12 +53,12 @@
     </div>
     <div class="col-md-4">
       <label for="inputdistrict" class="form-label">Quận Huyện:</label>
-      <select id="inputdistrict" name="district" class="form-select">
-        {{#each huyen}}
+      <select id="inputHuyen" name="district" class="form-select" onchange="chooseHuyen()">
+        {{!-- {{#each huyen}}
           {{#each this}}
             <option value="{{_id}}">{{name}}</option>
           {{/each}}
-        {{/each}}
+        {{/each}} --}}
       </select>
       <div class="invalid-feedback">*</div>
     </div>
@@ -119,7 +120,7 @@
 
      <div class="col-md-5">
       <label for="inputcenterRegister" class="form-label">Trung tâm VNCN muốn tiêm:</label>
-      <select id="inputcenterRegister" name="district" class="form-select">
+      <select id="inputcenterRegister" name="centerRegister" class="form-select">
       {{#each trungtam}}
           {{#each this}}
             <option value="{{tenTT}}">{{tenTT}}</option>
@@ -131,8 +132,7 @@
 
     <div class="col-md-5">
       <label for="inputdateUserService" class="form-label">Ngày mong muốn tiêm:</label>
-     <input type="date" class="form-control" id="inputdateUserService" placeholder="Ngày/Tháng/Năm" />
-      <div class="invalid-feedback">*</div>
+     <input type="date" class="form-control" name="dateUserService" id="inputdateUserService" placeholder="Ngày/Tháng/Năm" />
     </div>
 
     <div class="col-12">

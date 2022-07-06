@@ -1,4 +1,4 @@
-const mongoose = require("mongoose");
+import mongoose from "mongoose";
 
 const OrderSchema = new mongoose.Schema(
   {
@@ -21,7 +21,7 @@ const OrderSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    distric: {
+    district: {
       type: String,
       required: true,
     },
@@ -57,6 +57,6 @@ const OrderSchema = new mongoose.Schema(
   { timestamps: true }
 );
 
-const registerVaccin = mongoose.model("registerVaccin", OrderSchema);
+const registerVaccinModel = mongoose.model("registerVaccin", OrderSchema);
 
-module.exports = registerVaccin;
+export default registerVaccinModel;
