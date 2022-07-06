@@ -1,0 +1,30 @@
+<div class="container">
+<form action="/findArticle" method="get"  style="width:400px; margin-left:20px">
+  <div class="mb-3">
+    <label for="findInput" class="form-label">Tìm kiếm:</label>
+    <input type="text" name="title" class="form-control" id="findInput" />
+  </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+{{#each baiviet}}
+  {{#if this}}
+    {{#each this}}
+      {{#if title}}
+        <div
+          class="card"
+          style="width: 18rem; margin:20px; display:inline-flex"
+        >
+          {{! <img src="..." class="card-img-top" alt="..." /> }}
+          <div class="card-body">
+            <h5 class="card-title">{{title}}</h5>
+            <p class="card-text">Some quick example text to build on the card
+              title and make up the bulk of the card's content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      {{/if}}
+
+    {{/each}}
+  {{/if}}
+{{/each}}
+</div>

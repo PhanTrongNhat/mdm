@@ -1,0 +1,45 @@
+<div class="container">
+  <form action="/categories" method="get" style="width:400px; margin-left:20px">
+    <label for="inputCategories" class="form-label">Danh Mục:</label>
+    <select
+      id="inputCategories"
+      name="ten"
+      class="form-select"
+      required
+      onchange="this.form.submit()"
+    >
+   
+       <option value="   {{{ten}}}">    {{{ten}}}</option>
+      {{#each dataListCategories}}
+
+        {{#each this}}
+          <option value="{{this}}">{{this}}</option>
+        {{/each}}
+      {{/each}}
+
+    </select>
+  </form>
+
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Tên</th>
+        <th scope="col">Nội Dung</th>
+
+      </tr>
+    </thead>
+    <tbody>
+
+        {{#each data}}
+          <tr>
+            <td>{{this.ten}}</td>
+            <td>{{this.noiDung}}</td>
+          </tr>
+
+        {{/each}}
+
+  
+    </tbody>
+  </table>
+
+</div>
